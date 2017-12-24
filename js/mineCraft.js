@@ -1,3 +1,15 @@
+var minecraftMatrix = new Array(15);
+for (var j = 0; j < minecraftMatrix.length; j++){
+    minecraftMatrix[j] = new Array(15);
+    }
+    for (var k = 0; k < minecraftMatrix.length; k++){
+        for (var q = 0; q < minecraftMatrix.length; q++){
+        minecraftMatrix[k][q] = "";
+        }
+    }
+
+
+
 
 for (var y=0; y<15; y++){
     var line = $("<div/>");

@@ -1,4 +1,4 @@
-var minecraftMatrix = new Array(15);
+var minecraftMatrix = new Array(10);
 for (var j = 0; j < minecraftMatrix.length; j++){
     minecraftMatrix[j] = new Array(15);
     }
@@ -11,22 +11,29 @@ for (var j = 0; j < minecraftMatrix.length; j++){
 
 
 
-for (var y=0; y<15; y++){
-    var line = $("<div/>");
-        line.addClass("row");
-        $(".board").append(line);
-        line.attr("id","row"+ y);
+for (var y=0; y<10; y++){
     for (var x=0; x<15; x++){
         var row = $("<div/>");
         row.addClass("square");
-        $("#row" + y).append(row);
+        $(".board" ).append(row);
         row.attr("id","row"+ y + "column" + x);
         row.on("click", squarePress);
+        row.data("row",y);
+        row.data("column",x);
+        if (y==7){
+            row.addClass("dirtGrass");
+        }
+        else if (y>7){
+            row.addClass("dirt");
+        }
     }
 }
 
 function squarePress(){
-    console.log("chicken fucker");
+    var row = $(this).data("row");
+    var column = $(this).data("column");
+    console.log(row +","+ column);
+
 }
 
 var sideBarVar = $(".sideBar");
@@ -37,9 +44,12 @@ $(".sideBar").append(topSideBar);
 topSideBar.css({"display":"flex","flex-direction":"column","height":"350px","align-items":"center","justify-content":"space-around"});
 for (var w = 0; w < 3; w++){
     var button = $("<button/>");
-
+    button.attr("id", "button"+w);
     topSideBar.append(button);
 }
+$("#button0").html("Axe");
+$("#button1").html("Pickaxe");
+$("#button2").html("Shovel");
 
 
 

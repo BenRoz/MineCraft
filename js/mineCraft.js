@@ -1,13 +1,13 @@
-var minecraftMatrix = new Array(10);
-for (var j = 0; j < minecraftMatrix.length; j++){
-    minecraftMatrix[j] = new Array(15);
-    }
-    for (var k = 0; k < minecraftMatrix.length; k++){
-        for (var q = 0; q < minecraftMatrix.length; q++){
-        minecraftMatrix[k][q] = "";
-        }
-    }
-
+//var minecraftMatrix = new Array(10);
+//for (var j = 0; j < minecraftMatrix.length; j++){
+//    minecraftMatrix[j] = new Array(15);
+//    }
+//    for (var k = 0; k < minecraftMatrix.length; k++){
+//        for (var q = 0; q < 15; q++){
+//        minecraftMatrix[k][q] = q+","+k;
+//        }
+//    }
+//
 
 
 
@@ -16,7 +16,7 @@ for (var y=0; y<10; y++){
         var row = $("<div/>");
         row.addClass("square");
         $(".board" ).append(row);
-        row.attr("id","row"+ y + "column" + x);
+        row.attr("id", "column" + x + "row"+ y );
         row.on("click", squarePress);
         row.data("row",y);
         row.data("column",x);
@@ -32,7 +32,7 @@ for (var y=0; y<10; y++){
 function squarePress(){
     var row = $(this).data("row");
     var column = $(this).data("column");
-    console.log(row +","+ column);
+    console.log( column+ ","+ row);
 
 }
 

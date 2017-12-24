@@ -1,6 +1,7 @@
 .board{
-    width:900px;
-    height:900px;
+    width:1000px;
+    height:1000px;
+    display: inline-block;
 }
 .square{
     height:60px;
@@ -10,4 +11,13 @@
 }
 .row{
     display: inline-block;
+}
+.main{
+display:flex;
+justify-content: space-evenly;
+}
+
+button{
+    height: 100px;
+    width: 100px;
 }

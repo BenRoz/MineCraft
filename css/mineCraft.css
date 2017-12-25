@@ -20,6 +20,7 @@
     display: inline-block;
 }
 .main{
+position:relative;
 display:flex;
 justify-content: space-evenly;
 }
@@ -34,10 +35,10 @@ button{
     background-size: contain;
 }
 
-.unselectedTool{
+.tool{
     background-color: blue;
 }
-.selectedTool{
+.tool.selectedTool{
     background-color: red;
 }
 
@@ -57,4 +58,31 @@ button{
     background-image: url("../images/grass.png");
 
 }
+.inventory{
+    height: 65px;
+    width: 65px;
+    background-color: pink;
+}
+.leaf , .trunck{
+     height: 65px;
+    width: 65px;
 
+    background-repeat: no-repeat;
+    background-size:cover;
+
+}
+.leaf{
+     display: inline-block;
+}
+#tree{
+    line-height:0;
+    width:195px;
+    position:absolute;
+    top:135px;
+    left: 765px;
+}
+.treeBottom{
+    display:flex;
+    align-items :center;
+    flex-direction:column;
+}

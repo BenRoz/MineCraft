@@ -50,11 +50,16 @@ topSideBar.css({"display":"flex","flex-direction":"column","height":"350px","ali
 for (var w = 0; w < 3; w++){
     var button = $("<button/>");
     button.attr("id", "button"+w);
+    button.click(function(){
+        $('.tool').removeClass("unselectedTool selectedTool");
+        $('.tool').addClass("unselectedTool");
+        $(this).addClass("selectedTool");
+    })
     topSideBar.append(button);
 }
-$("#button0").html("Axe");
-$("#button1").html("Pickaxe");
-$("#button2").html("Shovel");
+$("#button0").html("Axe").addClass("unselectedTool tool");
+$("#button1").html("Pickaxe").addClass("unselectedTool tool");
+$("#button2").html("Shovel").addClass("unselectedTool tool");
 
 
 

@@ -12,8 +12,9 @@
     display: inline-block;
     background-repeat: no-repeat;
     background-size:cover;
-
-
+}
+.square:hover{
+    border: solid 1px white;
 }
 .row{
     display: inline-block;
@@ -22,9 +23,7 @@
 display:flex;
 justify-content: space-evenly;
 }
-.square:hover{
-    border: solid 1px white;
-}
+
 button{
     height: 80px;
     width: 80px;
@@ -36,21 +35,19 @@ button{
 }
 
 .unselectedTool{
-    background-color: red;
-}
-.selectedTool{
     background-color: blue;
 }
-
-#button0{
-    background-image: url("../images/axe.png");
-
-
+.selectedTool{
+    background-color: red;
 }
-#button1{
+
+#axe{
+    background-image: url("../images/axe.png");
+}
+#pickaxe{
     background-image: url("../images/pickaxe.png");
 }
-#button2{
+#shovel{
     background-image: url("../images/shovel.png");
 }
 .dirt{

@@ -11,7 +11,7 @@
 
 
 var minecraftMatrix=new Array(10);
-
+//Creating board loop
 for (var y=0; y<10; y++){
     minecraftMatrix[y]=new Array (15);
     for (var x=0; x<15; x++){
@@ -32,12 +32,18 @@ for (var y=0; y<10; y++){
     }
 }
 
+
+
 console.log(minecraftMatrix[1][2]);
 
 function squarePress(){
     var row = $(this).data("row");
     var column = $(this).data("column");
     console.log( column+ ","+ row);
+    if ((($(this).attr("class") == "square dirt") || ($(this).attr("class") == "square dirtGrass"))
+    && ($("#shovel").attr("class") == "tool selectedTool")){
+        $(this).attr("class", "square");
+    }
 
 }
 
@@ -47,19 +53,22 @@ sideBarVar.css({"display":"flex",'height':'600px',"justify-content":"center", 'w
 var topSideBar = $("<div/>");
 $(".sideBar").append(topSideBar);
 topSideBar.css({"display":"flex","flex-direction":"column","height":"350px","align-items":"center","justify-content":"space-around"});
+var toolButtonArray = ["axe","pickaxe", "shovel"];
 for (var w = 0; w < 3; w++){
     var button = $("<button/>");
-    button.attr("id", "button"+w);
+    button.attr("id", toolButtonArray[w]);
+    button.addClass('tool');
     button.click(function(){
         $('.tool').removeClass("unselectedTool selectedTool");
         $('.tool').addClass("unselectedTool");
+        $(this).removeClass("unselectedTool");
         $(this).addClass("selectedTool");
     })
     topSideBar.append(button);
 }
-$("#button0").html("Axe").addClass("unselectedTool tool");
-$("#button1").html("Pickaxe").addClass("unselectedTool tool");
-$("#button2").html("Shovel").addClass("unselectedTool tool");
+$("#axe").html("Axe").addClass("unselectedTool");
+$("#pickaxe").html("Pickaxe").addClass("unselectedTool");
+$("#shovel").html("Shovel").addClass("unselectedTool");
 
 
 

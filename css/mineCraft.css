@@ -51,13 +51,30 @@ button{
 #shovel{
     background-image: url("../images/shovel.png");
 }
-.dirt{
+.dirt, #dirt{
     background-image: url("../images/dirt.png");
 }
-.dirtGrass{
+.dirtGrass, #dirtGrass{
     background-image: url("../images/grass.png");
 
 }
+#stones{
+    background-image:url('../images/rock.png') ;
+}
+
+#Ariel{
+
+}
+
+#leaves{
+    background-image: url('../images/leaf.png') ;
+}
+
+#wood{
+    background-image: url('../images/tree.png') ;
+}
+
+
 .inventory{
     height: 65px;
     width: 65px;
@@ -86,3 +103,5 @@ button{
     align-items :center;
     flex-direction:column;
 }
+
+

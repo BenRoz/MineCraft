@@ -10,8 +10,10 @@
 //
 
 
+var minecraftMatrix=new Array(10);
 
 for (var y=0; y<10; y++){
+    minecraftMatrix[y]=new Array (15);
     for (var x=0; x<15; x++){
         var row = $("<div/>");
         row.addClass("square");
@@ -26,8 +28,11 @@ for (var y=0; y<10; y++){
         else if (y>7){
             row.addClass("dirt");
         }
+        minecraftMatrix[y][x]=row;
     }
 }
+
+console.log(minecraftMatrix[1][2]);
 
 function squarePress(){
     var row = $(this).data("row");

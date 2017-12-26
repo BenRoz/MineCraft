@@ -20,6 +20,8 @@ for (var y=0; y<10; y++){
         $(".board" ).append(row);
         row.attr("id", "column" + x + "row"+ y );
         row.on("click", squarePress);
+        //row.on("mouseover", setTree);
+        //row.on("mouseout", backtoSquare)
         row.data("row",y);
         row.data("column",x);
         if (y==7){
@@ -91,6 +93,8 @@ for (var z = 0; z < inventoryArray.length; z++){
          bottomSideBar.append(buttonsDown);
 }
 
+
+
 //Making Tree
 var treeDivContainer = $('<div/>');
 treeDivContainer.attr('id','tree');
@@ -121,3 +125,46 @@ for (var r=0; r<3; r++){
     trunk.click(squarePress);
 }
 
+// function setTree(){
+//     if ($(this).attr("background-image") != 'url()'){
+//         var y = $(this).data("row");
+//         var x = $(this).data("column");
+//         if (y<7){
+//         //trunk
+//             $('#column'+x+'row'+y).css({"background-image":"url('./images/tree.png')"});
+//             $('#column'+x+'row'+(y-1)).css({"background-image":"url('./images/tree.png')"});
+//             $('#column'+x+'row'+(y-2)).css({"background-image":"url('./images/tree.png')"});
+//             //leaves
+//             $('#column'+x+'row'+(y-3)).css({"background-image":"url('./images/leaf.png')"});
+//             $('#column'+x+'row'+(y-4)).css({"background-image":"url('./images/leaf.png')"});
+//             $('#column'+x+'row'+(y-5)).css({"background-image":"url('./images/leaf.png')"});
+//             $('#column'+(x-1)+'row'+(y-3)).css({"background-image":"url('./images/leaf.png')"});
+//             $('#column'+(x-1)+'row'+(y-4)).css({"background-image":"url('./images/leaf.png')"});
+//             $('#column'+(x-1)+'row'+(y-5)).css({"background-image":"url('./images/leaf.png')"});
+//             $('#column'+(x+1)+'row'+(y-3)).css({"background-image":"url('./images/leaf.png')"});
+//             $('#column'+(x+1)+'row'+(y-4)).css({"background-image":"url('./images/leaf.png')"});
+//             $('#column'+(x+1)+'row'+(y-5)).css({"background-image":"url('./images/leaf.png')"});
+//         }else if (y>7){
+//             continue;
+//         }
+//     }
+// }
+// function backtoSquare(){
+//     var y = $(this).data("row");
+//     var x = $(this).data("column");
+    
+//     $('#column'+x+'row'+y).css({"background-image":""});
+//     $('#column'+x+'row'+(y-1)).css({"background-image":""});
+//     $('#column'+x+'row'+(y-2)).css({"background-image":""});
+//     //leaves
+//     $('#column'+x+'row'+(y-3)).css({"background-image":""});
+//     $('#column'+x+'row'+(y-4)).css({"background-image":""});
+//     $('#column'+x+'row'+(y-5)).css({"background-image":""});
+//     $('#column'+(x-1)+'row'+(y-3)).css({"background-image":""});
+//     $('#column'+(x-1)+'row'+(y-4)).css({"background-image":""});
+//     $('#column'+(x-1)+'row'+(y-5)).css({"background-image":""});
+//     $('#column'+(x+1)+'row'+(y-3)).css({"background-image":""});
+//     $('#column'+(x+1)+'row'+(y-4)).css({"background-image":""});
+//     $('#column'+(x+1)+'row'+(y-5)).css({"background-image":""});
+    
+// }

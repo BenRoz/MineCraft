@@ -185,6 +185,7 @@ for (var r=0; r<3; r++){
  $( function() {
     $( "#tree" ).draggable({
      containment: '.board',
+    opacity: 0.4,
     cursor: 'move',
     snap: '.square',
     axis: 'x'
@@ -208,6 +209,7 @@ $( function() {
     $( "#rocks" ).draggable({
      containment: '.board',
     cursor: 'move',
+    opacity: 0.4,
     snap: '.square',
     axis: 'x'
     });

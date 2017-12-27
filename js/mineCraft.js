@@ -190,6 +190,21 @@ $( function() {
     });
   } );
 
+<<<<<<< HEAD
+=======
+//create cloud
+function createCloud(){
+    var x = 3;
+    var y = 1;
+    $('#column'+x+'row'+y).addClass('cloud');
+    $('#column'+(x)+'row'+(y+1)).addClass('cloud');
+    $('#column'+(x+1)+'row'+(y+1)).addClass('cloud');
+    $('#column'+(x-1)+'row'+(y+1)).addClass('cloud');
+    $('#column'+(x-1)+'row'+(y)).addClass('cloud');
+    $('#column'+(x-2)+'row'+(y+1)).addClass('cloud');
+}
+createCloud();
+>>>>>>> 6ce04ec52fbda18d7e110685efdda10621537ddd
 
 
 // function setTree(){

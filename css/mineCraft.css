@@ -63,7 +63,9 @@ button{
 }
 
 #Ariel{
-
+    background-image: url('../images/Ariel.jpg'); 
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #leaves{

@@ -48,13 +48,30 @@ dirtGrass: "0",
 dirt: "0",
 Ariel: "0",
 }
-
+//setting inventory values
 function inventoryCounter(a){
     console.log(a);
     if (a.attr("class").includes("rock")){
             settingCounter.stones++;
             $("#stones").text(settingCounter.stones);
 
+    }else if (a.attr("class").includes("dirt")){
+        if (a.attr("class").includes("dirtGrass")){
+            settingCounter.dirtGrass++;
+            $("#dirtGrass").text(settingCounter.dirtGrass);
+        }else{
+            settingCounter.dirt++;
+            $("#dirt").text(settingCounter.dirt);
+        }
+    }else if (a.attr("class").includes("leaves")){
+        settingCounter.leaves++;
+        $("#leaves").text(settingCounter.leaves);
+    }else if (a.attr("class").includes("wood")){
+        settingCounter.wood++;
+        $("#wood").text(settingCounter.wood);
+    } else if (a.attr("class").includes("Ariel")){
+        settingCounter.Ariel++;
+        $("#Ariel").text(settingCounter.Ariel);
     }
     console.log("done");
 }

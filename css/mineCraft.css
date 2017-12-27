@@ -58,7 +58,7 @@ button{
     background-image: url("../images/grass.png");
 
 }
-#stones{
+#stones, .rock{
     background-image:url('../images/rock.png') ;
 }
 
@@ -105,3 +105,17 @@ button{
 }
 
 
+#rocks{
+    line-height:0;
+    position:absolute;
+    top:396px;
+    left: 507px;
+}
+
+.rock{
+    width:65px;
+    height:65px;
+     background-repeat: no-repeat;
+    background-size:cover;
+    display:inline-block;
+}

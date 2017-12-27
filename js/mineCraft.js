@@ -1,15 +1,3 @@
-//var minecraftMatrix = new Array(10);
-//for (var j = 0; j < minecraftMatrix.length; j++){
-//    minecraftMatrix[j] = new Array(15);
-//    }
-//    for (var k = 0; k < minecraftMatrix.length; k++){
-//        for (var q = 0; q < 15; q++){
-//        minecraftMatrix[k][q] = q+","+k;
-//        }
-//    }
-//
-
-
 var minecraftMatrix=new Array(10);
 //Creating board loop
 for (var y=0; y<10; y++){
@@ -22,6 +10,7 @@ for (var y=0; y<10; y++){
         row.on("click", squarePress);
         row.data("row",y);
         row.data("column",x);
+//adding dirstGrass and dirt
         if (y==7){
             row.addClass("dirtGrass");
         }
@@ -31,11 +20,7 @@ for (var y=0; y<10; y++){
         minecraftMatrix[y][x]=row;
     }
 }
-
-
-
-console.log(minecraftMatrix[1][2]);
-
+//on click function
 function squarePress(){
     console.log($(this));
     var row = $(this).data("row");
@@ -48,9 +33,30 @@ function squarePress(){
     && ($("#axe").attr("class") == "tool selectedTool")){
         $(this).css({"visibility":"hidden"})
     }
-
+    else if (($(this).attr("class")== "rock") && ($("#pickaxe").attr("class") == "tool selectedTool")){
+     $(this).css({"visibility":"hidden"});
+    }
+    inventoryCounter($(this));
+}
+var settingCounter ={
+stones: "0",
+leaves : "0",
+wood: "0",
+dirtGrass: "0",
+dirt: "0",
+Ariel: "0",
 }
 
+function inventoryCounter(a){
+    console.log(a);
+    if (a.attr("class").includes("rock")){
+            settingCounter.stones++;
+            $("#stones").text(settingCounter.stones);
+
+    }
+    console.log("done");
+}
+//creating sidebar for buttons
 var sideBarVar = $(".sideBar");
 sideBarVar.css({"display":"block",'height':'600px','width':'250px',"background-color":"black"});
 
@@ -69,11 +75,9 @@ for (var w = 0; w < 3; w++){
     })
     topSideBar.append(buttonsUp);
 }
-
 $("#axe").html("Axe");
 $("#pickaxe").html("Pickaxe");
 $("#shovel").html("Shovel");
-
 
 var bottomSideBar = $("<div/>");
 $(".sideBar").append(bottomSideBar);
@@ -83,6 +87,7 @@ for (var z = 0; z < inventoryArray.length; z++){
        var buttonsDown = $("<button/>");
         buttonsDown.attr("id", inventoryArray[z]);
         buttonsDown.addClass('inventory');
+        buttonsDown.text(0);
         buttonsDown.click(function(){
         $('.inventory').removeClass("selectedTool");
         $('.tool').removeClass("selectedTool");
@@ -120,4 +125,52 @@ for (var r=0; r<3; r++){
     trunk.appendTo(treeBottom);
     trunk.click(squarePress);
 }
+ $( function() {
+    $( "#tree" ).draggable({
+     containment: '.board',
+    cursor: 'move',
+    snap: '.square',
+    axis: 'x'
+    });
+  } );
+
+
+
+function tree(){
+    this.id =
+    row (y) + line (x) . addClass(tree);
+    row (y) + line (x-1) . addClass(tree);
+    row (y) + line (x-2) . addClass(tree);
+    row (y) + line (x-3) . addClass(leaves);
+    row (y) + line (x-4) . addClass(leaves);
+    row (y) + line (x-5) . addClass(leaves);
+    row (y-1) + line (x-3) . addClass(leaves);
+    row (y-1) + line (x-4) . addClass(leaves);
+    row (y-1) + line (x-5) . addClass(leaves);
+    row (y+1) + line (x-3) . addClass(leaves);
+    row (y+1) + line (x-4) . addClass(leaves);
+    row (y+1) + line (x-5) . addClass(leaves);
+
+
+}
+//creating rocks
+var rocks = $("<div/>");
+rocks.attr("id","rocks");
+rocks.appendTo($(".main"));
+
+for (var p=0; p<2 ; p++){
+var rockSquare = $("<div/>");
+rockSquare.addClass("rock");
+rockSquare.appendTo($("#rocks"));
+rockSquare.click(squarePress);
+}
+
+$( function() {
+    $( "#rocks" ).draggable({
+     containment: '.board',
+    cursor: 'move',
+    snap: '.square',
+    axis: 'x'
+    });
+  } );
 

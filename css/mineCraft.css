@@ -111,7 +111,10 @@ button{
     top:396px;
     left: 507px;
 }
+.cloud{
+    background=white;
 
+}
 .rock{
     width:65px;
     height:65px;

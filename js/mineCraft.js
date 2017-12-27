@@ -197,19 +197,14 @@ $( function() {
 
 //create cloud
 function createCloud(){
-    var x = $(this).data("row");
-    var y = $(this).data("column");
+    var x = 3;
+    var y = 1;
     $('#column'+x+'row'+y).addClass('cloud');
-    $('#column'+(x+1)+'row'+y).addClass('cloud');
-    $('#column'+(x+2)+'row'+y).addClass('cloud');
-    $('#column'+(x+3)+'row'+y).addClass('cloud');
-    $('#column'+x+'row'+(y+1)).addClass('cloud');
+    $('#column'+(x)+'row'+(y+1)).addClass('cloud');
     $('#column'+(x+1)+'row'+(y+1)).addClass('cloud');
-    $('#column'+(x+2)+'row'+(y+1)).addClass('cloud');
-    $('#column'+(x+3)+'row'+(y+1)).addClass('cloud');
-    $('#column'+(x+2)+'row'+(y-1)).addClass('cloud');
-    $('#column'+(x+1)+'row'+(y+2)).addClass('cloud');
-
+    $('#column'+(x-1)+'row'+(y+1)).addClass('cloud');
+    $('#column'+(x-1)+'row'+(y)).addClass('cloud');
+    $('#column'+(x-2)+'row'+(y+1)).addClass('cloud');
 }
 createCloud();
 

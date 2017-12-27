@@ -28,18 +28,39 @@ function squarePress(){
     var row = $(this).data("row");
     var column = $(this).data("column");
     console.log( column+ ","+ row);
-    if ((($(this).attr("class") == "square dirt") || ($(this).attr("class") == "square dirtGrass"))
-    && ($("#shovel").attr("class") == "tool selectedTool")){
+    if (($(this).attr("class") == "square dirt") && ($("#shovel").attr("class") == "tool selectedTool")){
         $(this).attr("class", "square");
-    } else if ((($(this).attr("class") == "leaf") || ($(this).attr("class") == "trunck"))
-    && ($("#axe").attr("class") == "tool selectedTool")){
+        settingCounter.dirt++;
+        $("#dirt").text(settingCounter.dirt);
+    }
+    else if (($(this).attr("class") == "square dirtGrass")&& ($("#shovel").attr("class") == "tool selectedTool"))  {
+         $(this).attr("class", "square");
+         settingCounter.dirtGrass++;
+         $("#dirtGrass").text(settingCounter.dirtGrass);
+    }
+
+    else if (($(this).attr("class") == "leaf") && ($("#axe").attr("class") == "tool selectedTool")){
         $(this).css({"visibility":"hidden"})
+        settingCounter.leaves++;
+        $("#leaves").text(settingCounter.leaves);
+    }
+    else if (($(this).attr("class") == "trunck") && ($("#axe").attr("class") == "tool selectedTool")){
+         $(this).css({"visibility":"hidden"})
+         settingCounter.wood++;
+         $("#wood").text(settingCounter.wood);
     }
     else if (($(this).attr("class")== "rock") && ($("#pickaxe").attr("class") == "tool selectedTool")){
-     $(this).css({"visibility":"hidden"});
+        $(this).css({"visibility":"hidden"});
+        settingCounter.stones++;
+        $("#stones").text(settingCounter.stones);
     }
-    inventoryCounter($(this));
+    else if (($(this).attr("class")== "Ariel")){
+         $(this).css({"visibility":"hidden"});
+        settingCounter.Ariel++;
+        $("#stones").text(settingCounter.Ariel);
+    }
 }
+//setting inventory values
 var settingCounter ={
 stones: "0",
 leaves : "0",
@@ -48,33 +69,7 @@ dirtGrass: "0",
 dirt: "0",
 Ariel: "0",
 }
-//setting inventory values
-function inventoryCounter(a){
-    console.log(a);
-    if (a.attr("class").includes("rock")){
-            settingCounter.stones++;
-            $("#stones").text(settingCounter.stones);
 
-    }else if (a.attr("class").includes("dirt")){
-        if (a.attr("class").includes("dirtGrass")){
-            settingCounter.dirtGrass++;
-            $("#dirtGrass").text(settingCounter.dirtGrass);
-        }else{
-            settingCounter.dirt++;
-            $("#dirt").text(settingCounter.dirt);
-        }
-    }else if (a.attr("class").includes("leaves")){
-        settingCounter.leaves++;
-        $("#leaves").text(settingCounter.leaves);
-    }else if (a.attr("class").includes("wood")){
-        settingCounter.wood++;
-        $("#wood").text(settingCounter.wood);
-    } else if (a.attr("class").includes("Ariel")){
-        settingCounter.Ariel++;
-        $("#Ariel").text(settingCounter.Ariel);
-    }
-    console.log("done");
-}
 //creating sidebar for buttons
 var sideBarVar = $(".sideBar");
 sideBarVar.css({"display":"block",'height':'600px','width':'250px',"background-color":"black"});
@@ -195,23 +190,6 @@ $( function() {
     });
   } );
 
-//create cloud
-function createCloud(){
-    var x = $(this).data("row");
-    var y = $(this).data("column");
-    $('#column'+x+'row'+y).addClass('cloud');
-    $('#column'+(x+1)+'row'+y).addClass('cloud');
-    $('#column'+(x+2)+'row'+y).addClass('cloud');
-    $('#column'+(x+3)+'row'+y).addClass('cloud');
-    $('#column'+x+'row'+(y+1)).addClass('cloud');
-    $('#column'+(x+1)+'row'+(y+1)).addClass('cloud');
-    $('#column'+(x+2)+'row'+(y+1)).addClass('cloud');
-    $('#column'+(x+3)+'row'+(y+1)).addClass('cloud');
-    $('#column'+(x+2)+'row'+(y-1)).addClass('cloud');
-    $('#column'+(x+1)+'row'+(y+2)).addClass('cloud');
-
-}
-createCloud();
 
 
 // function setTree(){

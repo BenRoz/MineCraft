@@ -157,23 +157,23 @@ for (var r=0; r<3; r++){
 
 
 
-function tree(){
-    this.id =
-    row (y) + line (x) . addClass(tree);
-    row (y) + line (x-1) . addClass(tree);
-    row (y) + line (x-2) . addClass(tree);
-    row (y) + line (x-3) . addClass(leaves);
-    row (y) + line (x-4) . addClass(leaves);
-    row (y) + line (x-5) . addClass(leaves);
-    row (y-1) + line (x-3) . addClass(leaves);
-    row (y-1) + line (x-4) . addClass(leaves);
-    row (y-1) + line (x-5) . addClass(leaves);
-    row (y+1) + line (x-3) . addClass(leaves);
-    row (y+1) + line (x-4) . addClass(leaves);
-    row (y+1) + line (x-5) . addClass(leaves);
+    // function tree(){
+    // this.id =
+    // row (y) + line (x) . addClass(tree);
+    // row (y) + line (x-1) . addClass(tree);
+    // row (y) + line (x-2) . addClass(tree);
+    // row (y) + line (x-3) . addClass(leaves);
+    // row (y) + line (x-4) . addClass(leaves);
+    // row (y) + line (x-5) . addClass(leaves);
+    // row (y-1) + line (x-3) . addClass(leaves);
+    // row (y-1) + line (x-4) . addClass(leaves);
+    // row (y-1) + line (x-5) . addClass(leaves);
+    // row (y+1) + line (x-3) . addClass(leaves);
+    // row (y+1) + line (x-4) . addClass(leaves);
+    // row (y+1) + line (x-5) . addClass(leaves);
 
 
-}
+    // }
 //creating rocks
 var rocks = $("<div/>");
 rocks.attr("id","rocks");
@@ -207,6 +207,15 @@ function createCloud(){
     $('#column'+(x-2)+'row'+(y+1)).addClass('cloud');
 }
 createCloud();
+
+//create bush
+function createBush(){
+    var mainBushDiv = $('<div/>')
+    mainBushDiv.attr("id","bush");
+    mainBushDiv.css({"height":"190px","width":"120px"});
+    mainBushDiv.appendTo($(".board"));
+
+}
 
 
 // function setTree(){

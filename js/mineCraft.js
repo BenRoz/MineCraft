@@ -104,8 +104,7 @@ $("#shovel").html("Shovel");
 
 var bottomSideBar = $("<div/>");
 $(".sideBar").append(bottomSideBar);
-bottomSideBar.css({"display":"flex","flex-direction":"row","flex-wrap": "wrap","height":"250px","align-items":"space-around","padding-top":"30px","justify-content":"space-around"});
-
+bottomSideBar.css({"height":"250px","horizontal-align":"50%","padding-top":"30px","margin-left":"20px"});
 //creating inventory
 var selectedInventory;
 var tempImage;
@@ -125,18 +124,22 @@ for (var z = 0; z < inventoryArray.length; z++){
        var buttonsDown = $("<button/>");
         buttonsDown.attr("id", inventoryArray[z]);
         buttonsDown.addClass('inventory');
-        buttonsDown.text(settingCounter[inventoryArray[z]]);
-
+        //buttonsDown.text(settingCounter[inventoryArray[z]]);
+        var buttonText =  $('<p/>').html(settingCounter[inventoryArray[z]]);
+        buttonText.attr("id", inventoryArray[z]+"text");
+        buttonText.appendTo(buttonsDown);
         buttonsDown.click(function(){
         $('.inventory').removeClass("selectedTool");
         $('.tool').removeClass("selectedTool");
         $(this).addClass("selectedTool");
-//        tempImage = $(this).css("background-image");
         tempClassName= $(this).attr("id");
 
  console.log(matchingIdToClass[tempClassName]);
     })
-         bottomSideBar.append(buttonsDown);
+    bottomSideBar.append(buttonsDown);
+    if (z == 2){
+        bottomSideBar.append($('</br>'));
+    }
 }
 
 //
@@ -150,6 +153,10 @@ function placingOnBoard(a){
          settingCounter[tempClassName]--;
          $("#"+tempClassName).text(settingCounter[tempClassName]);
          }
+
+     }
+     else if (a.css('background-image') !== "none"){
+        a.css({})
 
      }
 }

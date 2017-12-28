@@ -1,21 +1,20 @@
 .board{
-    width:990px;
-    height:1000px;
+    width:900px;
+    height:900px;
     display: inline-block;
     line-height:0;
-    background: #91C1FC ;
+
 }
 .square{
-    height:6.4%;
-    width:6.4%;
-    border: 1px solid black;
+    height:60px;
+    width:60px;
     background: #91C1FC ;
     display: inline-block;
     background-repeat: no-repeat;
     background-size:cover;
 }
 .square:hover{
-    border: solid 1px white;
+    opacity: 0.8;
 }
 .row{
     display: inline-block;
@@ -62,14 +61,29 @@ button{
 #rockBut, .rock{
     background-image:url('../images/rock.png') ;
 }
+.rock:hover{
+    opacity: 0.6;
+}
 
 .trunck{
     background-image:url('../images/tree.png') ;
     display: inline-block;
 }
+.trunck:hover{
+    opacity: 0.6;
+}
+#otherTrunck0,#otherTrunck2, #otherTrunck3,#otherTrunck5,#otherTrunck6,#otherTrunck8 {
+
+    height: 60px !important;
+    width: 60px !important;
+
+}
 .leaf{
     background-image:url('../images/leaf.png') ;
     display: inline-block;
+}
+.leaf:hover{
+    opacity: 0.6;
 }
 
 #ArielBut{
@@ -77,11 +91,15 @@ button{
     background-repeat: no-repeat;
     background-size: cover;
     display: inline-block;
+      height:60px;
+    width:60px;
 }
 .Ariel{
-background-image: url('../images/Ariel.jpg');
+  background-image: url('../images/Ariel.jpg');
  display: inline-block;
    background-size: cover;
+    height:60px;
+    width:60px;
 }
 #leafBut{
     background-image: url('../images/leaf.png') ;
@@ -89,17 +107,19 @@ background-image: url('../images/Ariel.jpg');
 
 #trunckBut{
     background-image: url('../images/tree.png') ;
+     height: 60px;
+    width: 60px;
 }
 
 
 .inventory{
-    height: 65px;
-    width: 65px;
+    height: 60px;
+    width: 60px;
     background-color: pink;
 }
 .leaf , .trunck{
-     height: 65px;
-    width: 65px;
+     height: 60px;
+    width: 60px;
 
     background-repeat: no-repeat;
     background-size:cover;
@@ -110,22 +130,23 @@ background-image: url('../images/Ariel.jpg');
 }
 #tree{
     line-height:0;
-    width:195px;
+    width:180px;
     position:absolute;
-    top:135px;
-    left: 765px;
+    top:119px;
+    left: 746px;
 }
 .treeBottom{
     display:flex;
     align-items :center;
-    flex-direction:column;
+    flex-direction:row;
+    flex-wrap: wrap;
 }
 
 
 #rocks{
     line-height:0;
     position:absolute;
-    top:396px;
+    top:379px;
     left: 507px;
 }
 .cloud{
@@ -133,8 +154,8 @@ background-image: url('../images/Ariel.jpg');
 
 }
 .rock{
-    width:65px;
-    height:65px;
+    width:60px;
+    height:60px;
      background-repeat: no-repeat;
     background-size:cover;
     display:inline-block;

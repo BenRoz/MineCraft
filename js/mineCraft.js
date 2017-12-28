@@ -175,12 +175,20 @@ var treeBottom = $('<div/>');
 treeBottom.appendTo(treeDivContainer);
 treeBottom.addClass('treeBottom')
 
-for (var r=0; r<3; r++){
+for (var r=0; r<9; r++){
     var trunk = $('<div/>')
-    trunk.css({"background-image":"url('./images/tree.png')"});
-    trunk.addClass('trunck');
-    trunk.appendTo(treeBottom);
-    trunk.click(squarePress);
+    if(r==1 || r==4 || r==7){
+        trunk.css({"background-image":"url('./images/tree.png')"});
+        trunk.addClass('trunck');
+        trunk.appendTo(treeBottom);
+        trunk.click(squarePress);
+    } else {
+        trunk.addClass('otherTrunck');
+        trunk.appendTo(treeBottom);
+        trunk.click(squarePress);
+        trunk.click(squarePress);
+        trunk.attr('id','otherTrunck' + r);
+    }
 }
  $( function() {
     $( "#tree" ).draggable({
@@ -188,6 +196,7 @@ for (var r=0; r<3; r++){
     opacity: 0.4,
     cursor: 'move',
     snap: '.square',
+    snapTolerance: 40,
     axis: 'x'
     });
   } );

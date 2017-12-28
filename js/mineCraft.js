@@ -39,23 +39,23 @@ function squarePress(){
          $("#dirtGrassBut").text(settingCounter.dirtGrassBut);
     }
 
-    else if (($(this).attr("class") == "leaf") && ($("#axe").attr("class") == "tool selectedTool")){
-        $(this).css({"visibility":"hidden"})
+    else if (($(this).attr("class") == "square leaf") && ($("#axe").attr("class") == "tool selectedTool")){
+        $(this).attr("class", "square");
         settingCounter.leafBut++;
         $("#leafBut").text(settingCounter.leafBut);
     }
-    else if (($(this).attr("class") == "trunck") && ($("#axe").attr("class") == "tool selectedTool")){
-          $(this).css({"visibility":"hidden"})
+    else if (($(this).attr("class") == "square trunck") && ($("#axe").attr("class") == "tool selectedTool")){
+        $(this).attr("class", "square");
          settingCounter.trunckBut++;
          $("#trunckBut").text(settingCounter.trunckBut);
     }
-    else if (($(this).attr("class")== "rock") && ($("#pickaxe").attr("class") == "tool selectedTool")){
-        $(this).css({"visibility":"hidden"});
+    else if (($(this).attr("class")== "square rock") && ($("#pickaxe").attr("class") == "tool selectedTool")){
+        $(this).attr("class", "square");
         settingCounter.rockBut++;
         $("#rockBut").text(settingCounter.rockBut);
     }
     else if (($(this).attr("class")== "Ariel")){
-         $(this).css({"visibility":"hidden"});
+        $(this).attr("class", "square");
         settingCounter.ArielBut++;
         $("#ArielBut").text(settingCounter.ArielBut);
     }
@@ -154,75 +154,78 @@ function placingOnBoard(a){
      }
 }
 //creating Tree
-var treeDivContainer = $('<div/>');
-treeDivContainer.attr('id','tree');
-treeDivContainer.appendTo($('.main'));
+// var treeDivContainer = $('<div/>');
+// treeDivContainer.attr('id','tree');
+// treeDivContainer.appendTo($('.main'));
 
-var treeTop = $('<div/>');
-treeTop.appendTo(treeDivContainer);
+// var treeTop = $('<div/>');
+// treeTop.appendTo(treeDivContainer);
 
-for (var t=0; t<2; t++){
-    for (var v=0; v<3; v++){
-        var leaf = $('<div/>')
-        leaf.css({"background-image":"url('./images/leaf.png')"});
-        leaf.appendTo(treeTop);
-        leaf.addClass('leaf');
-        leaf.click(squarePress);
-    }
+// for (var t=0; t<2; t++){
+//     for (var v=0; v<3; v++){
+//         var leaf = $('<div/>')
+//         leaf.css({"background-image":"url('./images/leaf.png')"});
+//         leaf.appendTo(treeTop);
+//         leaf.addClass('leaf');
+//         leaf.click(squarePress);
+//     }
+// }
+
+// var treeBottom = $('<div/>');
+// treeBottom.appendTo(treeDivContainer);
+// treeBottom.addClass('treeBottom')
+
+// for (var r=0; r<9; r++){
+//     var trunk = $('<div/>')
+//     if(r==1 || r==4 || r==7){
+//         trunk.css({"background-image":"url('./images/tree.png')"});
+//         trunk.addClass('trunck');
+//         trunk.appendTo(treeBottom);
+//         trunk.click(squarePress);
+//     } else {
+//         trunk.addClass('otherTrunck');
+//         trunk.appendTo(treeBottom);
+//         trunk.click(squarePress);
+//         trunk.click(squarePress);
+//         trunk.attr('id','otherTrunck' + r);
+//     }
+// }
+//  $( function() {
+//     $( "#tree" ).draggable({
+//      containment: '.board',
+//     opacity: 0.4,
+//     cursor: 'move',
+//     snap: '.square',
+//     snapTolerance: 40,
+//     axis: 'x'
+//     });
+//   } );
+
+//creating tree
+function makeTree(){
+    var x = 12;
+    var y = 6;
+    $('#column'+(x)+'row'+(y)).addClass('square trunck');
+    $('#column'+(x)+'row'+(y-1)).addClass('square trunck');
+    $('#column'+(x)+'row'+(y-2)).addClass('square trunck');
+    $('#column'+(x)+'row'+(y-3)).addClass('square leaf');
+    $('#column'+(x)+'row'+(y-4)).addClass('square leaf');
+    $('#column'+(x-1)+'row'+(y-3)).addClass('square leaf');
+    $('#column'+(x-1)+'row'+(y-4)).addClass('square leaf');
+    $('#column'+(x+1)+'row'+(y-3)).addClass('square leaf');
+    $('#column'+(x+1)+'row'+(y-4)).addClass('square leaf');
 }
-
-var treeBottom = $('<div/>');
-treeBottom.appendTo(treeDivContainer);
-treeBottom.addClass('treeBottom')
-
-for (var r=0; r<9; r++){
-    var trunk = $('<div/>')
-    if(r==1 || r==4 || r==7){
-        trunk.css({"background-image":"url('./images/tree.png')"});
-        trunk.addClass('trunck');
-        trunk.appendTo(treeBottom);
-        trunk.click(squarePress);
-    } else {
-        trunk.addClass('otherTrunck');
-        trunk.appendTo(treeBottom);
-        trunk.click(squarePress);
-        trunk.click(squarePress);
-        trunk.attr('id','otherTrunck' + r);
-    }
-}
- $( function() {
-    $( "#tree" ).draggable({
-     containment: '.board',
-    opacity: 0.4,
-    cursor: 'move',
-    snap: '.square',
-    snapTolerance: 40,
-    axis: 'x'
-    });
-  } );
-
+makeTree();
 
 //creating rocks
-var rocks = $("<div/>");
-rocks.attr("id","rocks");
-rocks.appendTo($(".main"));
-
-for (var p=0; p<2 ; p++){
-var rockSquare = $("<div/>");
-rockSquare.addClass("rock");
-rockSquare.appendTo($("#rocks"));
-rockSquare.click(squarePress);
+function makeRock(){
+    var x = 8;
+    var y = 6;
+    $('#column'+x+'row'+(y)).addClass('square rock');
+    $('#column'+(x+1)+'row'+(y)).addClass('square rock');
 }
+makeRock();
 
-$( function() {
-    $( "#rocks" ).draggable({
-     containment: '.board',
-    cursor: 'move',
-    opacity: 0.4,
-    snap: '.square',
-    axis: 'x'
-    });
-  } );
 
 
 //create cloud

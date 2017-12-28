@@ -33,6 +33,8 @@ function squarePress(){
         settingCounter.dirtBut++;
         $("#dirtBut").text(settingCounter.dirtBut);
     }
+
+
     else if (($(this).attr("class") == "square dirtGrass")&& ($("#shovel").attr("class") == "tool selectedTool"))  {
           $(this).attr("class", "square");
          settingCounter.dirtGrassBut++;
@@ -59,6 +61,24 @@ function squarePress(){
         settingCounter.ArielBut++;
         $("#ArielBut").text(settingCounter.ArielBut);
     }
+    else if (($(this).attr("class") !== "square dirt") && ($("#shovel").attr("class") == "tool selectedTool")) {
+        $("#shovel").attr("class","tool selectedTool notWorkingColor");
+        setTimeout(function(){
+             $("#shovel").attr("class","tool selectedTool"); }, 200)
+        }
+
+    else if (($(this).attr("class") !== "square rock") && ($("#pickaxe").attr("class") == "tool selectedTool")) {
+         $("#pickaxe").attr("class","tool selectedTool notWorkingColor");
+        setTimeout(function(){
+             $("#pickaxe").attr("class","tool selectedTool"); }, 200)
+        }
+      else if ((($(this).attr("class") !== "square leaf") && ($("#axe").attr("class") == "tool selectedTool"))||
+       (($(this).attr("class") !== "square trunck")&& ($("#axe").attr("class") == "tool selectedTool"))){
+         $("#axe").attr("class","tool selectedTool notWorkingColor");
+        setTimeout(function(){
+             $("#axe").attr("class","tool selectedTool"); }, 200)
+        }
+
     if (!$('#pickaxe').attr("class").includes("selectedTool")&&!$('#axe').attr("class").includes("selectedTool")&&
     !$('#shovel').attr("class").includes("selectedTool")){
         placingOnBoard($(this));
@@ -104,6 +124,7 @@ $("#shovel").html("Shovel");
 
 var bottomSideBar = $("<div/>");
 $(".sideBar").append(bottomSideBar);
+bottomSideBar.attr("id","bottomSideBarContainer")
 bottomSideBar.css({"height":"250px","horizontal-align":"50%","padding-top":"30px","margin-left":"20px"});
 //creating inventory
 var selectedInventory;
@@ -141,6 +162,10 @@ for (var z = 0; z < inventoryArray.length; z++){
         bottomSideBar.append($('</br>'));
     }
 }
+var resetButVar=$("<button/>");
+resetButVar.appendTo("#bottomSideBarContainer");
+resetButVar.attr("id", "resetBut")
+resetButVar.text("Reset");
 
 //
 function placingOnBoard(a){

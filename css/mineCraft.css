@@ -24,6 +24,16 @@ position:relative;
 display:flex;
 justify-content: center;
 }
+#resetBut{
+    height: 35px;
+    width: 120px;
+    margin-left: 45px;
+    margin-top: 15px;
+    background-color:white;
+    font-size: 19px;
+    color: black;
+
+}
 
 button{
     height: 80px;
@@ -34,12 +44,14 @@ button{
     background-size: contain;
     margin: 5px;
 }
-
+.notWorkingColor{
+    background-color: darkred !important;
+}
 .tool{
     background-color: blue;
 }
 .tool.selectedTool{
-    background-color: red;
+    background-color: red ;
 }
 
 #axe{

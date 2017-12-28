@@ -1,27 +1,25 @@
-var minecraftMatrix=new Array(10);
-//Creating board loop
-for (var y=0; y<10; y++){
-    minecraftMatrix[y]=new Array (15);
-    for (var x=0; x<15; x++){
-        var row = $("<div/>");
-        row.addClass("square");
-        $(".board" ).append(row);
-        row.attr("id", "column" + x + "row"+ y );
-        row.on("click", squarePress);
-        //row.on("mouseover", setTree);
-        //row.on("mouseout", backtoSquare)
-        row.data("row",y);
-        row.data("column",x);
-//adding dirstGrass and dirt
-        if (y==7){
-            row.addClass("dirtGrass");
-        }
-        else if (y>7){
-            row.addClass("dirt");
-        }
-        minecraftMatrix[y][x]=row;
-    }
+
+function resetGame(){
+
+    $('.board').html("");
+    $('.sideBar').html("");
+    //setting inventory values
+    settingCounter.rockBut= 2;
+    settingCounter.leafBut= 0;
+    settingCounter.trunckBut= 2;
+    settingCounter.dirtBut= 0;
+    settingCounter.dirtGrassBut= 2;
+    settingCounter.ArielBut= 5;
+
+    creatingMatrix();
+    createTree();
+    createRock();
+    createCloud();
+    createBush();
+    creatingSideBarandButtons();
+
 }
+
 //on click function
 function squarePress(){
     var row = $(this).data("row");
@@ -34,13 +32,11 @@ function squarePress(){
         $("#dirtBut").text(settingCounter.dirtBut);
     }
 
-
     else if (($(this).attr("class") == "square dirtGrass")&& ($("#shovel").attr("class") == "tool selectedTool"))  {
           $(this).attr("class", "square");
          settingCounter.dirtGrassBut++;
          $("#dirtGrassBut").text(settingCounter.dirtGrassBut);
     }
-
     else if (($(this).attr("class") == "square leaf") && ($("#axe").attr("class") == "tool selectedTool")){
         $(this).attr("class", "square");
         settingCounter.leafBut++;
@@ -66,36 +62,41 @@ function squarePress(){
         setTimeout(function(){
              $("#shovel").attr("class","tool selectedTool"); }, 200)
         }
-
     else if (($(this).attr("class") !== "square rock") && ($("#pickaxe").attr("class") == "tool selectedTool")) {
          $("#pickaxe").attr("class","tool selectedTool notWorkingColor");
         setTimeout(function(){
              $("#pickaxe").attr("class","tool selectedTool"); }, 200)
         }
-      else if ((($(this).attr("class") !== "square leaf") && ($("#axe").attr("class") == "tool selectedTool"))||
-       (($(this).attr("class") !== "square trunck")&& ($("#axe").attr("class") == "tool selectedTool"))){
+    else if ((($(this).attr("class") !== "square leaf") && ($("#axe").attr("class") == "tool selectedTool"))||
+            (($(this).attr("class") !== "square trunck")&& ($("#axe").attr("class") == "tool selectedTool"))){
          $("#axe").attr("class","tool selectedTool notWorkingColor");
         setTimeout(function(){
              $("#axe").attr("class","tool selectedTool"); }, 200)
-        }
+    }
 
     if (!$('#pickaxe').attr("class").includes("selectedTool")&&!$('#axe').attr("class").includes("selectedTool")&&
     !$('#shovel').attr("class").includes("selectedTool")){
         placingOnBoard($(this));
     }
 
-    console.log($(this).css("background-image"))
 }
 //setting inventory values
-var settingCounter ={
-rockBut: 2,
-leafBut : 0,
-trunckBut: 1,
-dirtGrassBut: 2,
-dirtBut: "0",
-ArielBut: 5,
-}
+var settingCounter ={}
 
+var matchingIdToClass= {
+    dirtBut : "square dirt",
+    dirtGrassBut : "square dirtGrass",
+    rockBut : "rock",
+    leafBut: "leaf",
+    trunckBut: "trunck",
+    ArielBut : "Ariel"
+};
+var toolButtonArray = ["axe","pickaxe", "shovel"];
+var selectedInventory;
+var tempImage;
+var tempClassName="";
+
+function creatingSideBarandButtons(){
 //creating sidebar for buttons
 var sideBarVar = $(".sideBar");
 sideBarVar.css({"display":"block",'height':'600px','width':'250px',"background-color":"black"});
@@ -112,35 +113,20 @@ for (var w = 0; w < 3; w++){
         $('.tool').removeClass("selectedTool");
         $('.inventory').removeClass("selectedTool");
         $(this).addClass("selectedTool");
-
     })
     topSideBar.append(buttonsUp);
 }
-
 $("#axe").html("Axe");
 $("#pickaxe").html("Pickaxe");
 $("#shovel").html("Shovel");
 //inventory
-
 var bottomSideBar = $("<div/>");
 $(".sideBar").append(bottomSideBar);
 bottomSideBar.attr("id","bottomSideBarContainer")
 bottomSideBar.css({"height":"250px","horizontal-align":"50%","padding-top":"30px","margin-left":"20px"});
 //creating inventory
-var selectedInventory;
-var tempImage;
-
-var matchingIdToClass= {
-dirtBut : "square dirt",
-dirtGrassBut : "square dirtGrass",
-rockBut : "rock",
-leafBut: "leaf",
-trunckBut: "trunck",
-ArielBut : "Ariel"
-}
-
-var tempClassName="";
 var inventoryArray = ["dirtBut","dirtGrassBut", "rockBut", "leafBut", "trunckBut","ArielBut"];
+
 for (var z = 0; z < inventoryArray.length; z++){
        var buttonsDown = $("<button/>");
         buttonsDown.attr("id", inventoryArray[z]);
@@ -154,22 +140,20 @@ for (var z = 0; z < inventoryArray.length; z++){
         $('.tool').removeClass("selectedTool");
         $(this).addClass("selectedTool");
         tempClassName= $(this).attr("id");
-
- console.log(matchingIdToClass[tempClassName]);
     })
     bottomSideBar.append(buttonsDown);
     if (z == 2){
         bottomSideBar.append($('</br>'));
     }
-}
+  }
 var resetButVar=$("<button/>");
 resetButVar.appendTo("#bottomSideBarContainer");
 resetButVar.attr("id", "resetBut")
 resetButVar.text("Reset");
+resetButVar.click(resetGame);
+}
 
-//
 function placingOnBoard(a){
-
     if(settingCounter[tempClassName] > 0){
         if (a.css('background-image') == "none"){
         a.attr("class", matchingIdToClass[tempClassName]);
@@ -180,61 +164,37 @@ function placingOnBoard(a){
          }
 
      }
-     else if (a.css('background-image') !== "none"){
-        a.css({})
-
-     }
 }
-//creating Tree
-// var treeDivContainer = $('<div/>');
-// treeDivContainer.attr('id','tree');
-// treeDivContainer.appendTo($('.main'));
 
-// var treeTop = $('<div/>');
-// treeTop.appendTo(treeDivContainer);
-
-// for (var t=0; t<2; t++){
-//     for (var v=0; v<3; v++){
-//         var leaf = $('<div/>')
-//         leaf.css({"background-image":"url('./images/leaf.png')"});
-//         leaf.appendTo(treeTop);
-//         leaf.addClass('leaf');
-//         leaf.click(squarePress);
-//     }
-// }
-
-// var treeBottom = $('<div/>');
-// treeBottom.appendTo(treeDivContainer);
-// treeBottom.addClass('treeBottom')
-
-// for (var r=0; r<9; r++){
-//     var trunk = $('<div/>')
-//     if(r==1 || r==4 || r==7){
-//         trunk.css({"background-image":"url('./images/tree.png')"});
-//         trunk.addClass('trunck');
-//         trunk.appendTo(treeBottom);
-//         trunk.click(squarePress);
-//     } else {
-//         trunk.addClass('otherTrunck');
-//         trunk.appendTo(treeBottom);
-//         trunk.click(squarePress);
-//         trunk.click(squarePress);
-//         trunk.attr('id','otherTrunck' + r);
-//     }
-// }
-//  $( function() {
-//     $( "#tree" ).draggable({
-//      containment: '.board',
-//     opacity: 0.4,
-//     cursor: 'move',
-//     snap: '.square',
-//     snapTolerance: 40,
-//     axis: 'x'
-//     });
-//   } );
+function creatingMatrix(){
+    var minecraftMatrix=new Array(10);
+    //Creating board loop
+    for (var y=0; y<10; y++){
+        minecraftMatrix[y]=new Array (15);
+        for (var x=0; x<15; x++){
+            var row = $("<div/>");
+            row.addClass("square");
+            $(".board" ).append(row);
+            row.attr("id", "column" + x + "row"+ y );
+            row.on("click", squarePress);
+            //row.on("mouseover", setTree);
+            //row.on("mouseout", backtoSquare)
+            row.data("row",y);
+            row.data("column",x);
+    //adding dirstGrass and dirt
+            if (y==7){
+                row.addClass("dirtGrass");
+            }
+            else if (y>7){
+                row.addClass("dirt");
+            }
+            minecraftMatrix[y][x]=row;
+        }
+    }
+}
 
 //creating tree
-function makeTree(){
+function createTree(){
     var x = 12;
     var y = 6;
     $('#column'+(x)+'row'+(y)).addClass('square trunck');
@@ -247,19 +207,14 @@ function makeTree(){
     $('#column'+(x+1)+'row'+(y-3)).addClass('square leaf');
     $('#column'+(x+1)+'row'+(y-4)).addClass('square leaf');
 }
-makeTree();
 
 //creating rocks
-function makeRock(){
+function createRock(){
     var x = 8;
     var y = 6;
     $('#column'+x+'row'+(y)).addClass('square rock');
     $('#column'+(x+1)+'row'+(y)).addClass('square rock');
 }
-makeRock();
-
-
-
 //create cloud
 function createCloud(){
     var x = 3;
@@ -272,8 +227,6 @@ function createCloud(){
     $('#column'+(x-2)+'row'+(y+1)).addClass('cloud');
     $('#column'+(x-1)+'row'+(y+2)).addClass('cloud');
 }
-createCloud();
-
 
 //create bush
 function createBush(){
@@ -284,5 +237,5 @@ function createBush(){
     $('#column'+(x)+'row'+y).addClass('leaf');
     $('#column'+(x)+'row'+(y-1)).addClass('leaf');
 }
-createBush();
 
+resetGame();

@@ -193,24 +193,6 @@ for (var r=0; r<3; r++){
   } );
 
 
-
-    // function tree(){
-    // this.id =
-    // row (y) + line (x) . addClass(tree);
-    // row (y) + line (x-1) . addClass(tree);
-    // row (y) + line (x-2) . addClass(tree);
-    // row (y) + line (x-3) . addClass(leaves);
-    // row (y) + line (x-4) . addClass(leaves);
-    // row (y) + line (x-5) . addClass(leaves);
-    // row (y-1) + line (x-3) . addClass(leaves);
-    // row (y-1) + line (x-4) . addClass(leaves);
-    // row (y-1) + line (x-5) . addClass(leaves);
-    // row (y+1) + line (x-3) . addClass(leaves);
-    // row (y+1) + line (x-4) . addClass(leaves);
-    // row (y+1) + line (x-5) . addClass(leaves);
-
-
-    // }
 //creating rocks
 var rocks = $("<div/>");
 rocks.attr("id","rocks");
@@ -248,59 +230,15 @@ function createCloud(){
 }
 createCloud();
 
-<<<<<<< HEAD
+
 //create bush
 function createBush(){
-    var mainBushDiv = $('<div/>')
-    mainBushDiv.attr("id","bush");
-    mainBushDiv.css({"height":"190px","width":"120px"});
-    mainBushDiv.appendTo($(".board"));
-
+    var x = 2;
+    var y = 6;
+    $('#column'+(x-1)+'row'+y).addClass('leaf');
+    $('#column'+(x+1)+'row'+y).addClass('leaf');
+    $('#column'+(x)+'row'+y).addClass('leaf');
+    $('#column'+(x)+'row'+(y-1)).addClass('leaf');
 }
+createBush();
 
-
-// function setTree(){
-//     if ($(this).attr("background-image") != 'url()'){
-//         var y = $(this).data("row");
-//         var x = $(this).data("column");
-//         if (y<7){
-//         //trunk
-//             $('#column'+x+'row'+y).css({"background-image":"url('./images/tree.png')"});
-//             $('#column'+x+'row'+(y-1)).css({"background-image":"url('./images/tree.png')"});
-//             $('#column'+x+'row'+(y-2)).css({"background-image":"url('./images/tree.png')"});
-//             //leaves
-//             $('#column'+x+'row'+(y-3)).css({"background-image":"url('./images/leaf.png')"});
-//             $('#column'+x+'row'+(y-4)).css({"background-image":"url('./images/leaf.png')"});
-//             $('#column'+x+'row'+(y-5)).css({"background-image":"url('./images/leaf.png')"});
-//             $('#column'+(x-1)+'row'+(y-3)).css({"background-image":"url('./images/leaf.png')"});
-//             $('#column'+(x-1)+'row'+(y-4)).css({"background-image":"url('./images/leaf.png')"});
-//             $('#column'+(x-1)+'row'+(y-5)).css({"background-image":"url('./images/leaf.png')"});
-//             $('#column'+(x+1)+'row'+(y-3)).css({"background-image":"url('./images/leaf.png')"});
-//             $('#column'+(x+1)+'row'+(y-4)).css({"background-image":"url('./images/leaf.png')"});
-//             $('#column'+(x+1)+'row'+(y-5)).css({"background-image":"url('./images/leaf.png')"});
-//         }else if (y>7){
-//             continue;
-//         }
-//     }
-// }
-// function backtoSquare(){
-//     var y = $(this).data("row");
-//     var x = $(this).data("column");
-    
-//     $('#column'+x+'row'+y).css({"background-image":""});
-//     $('#column'+x+'row'+(y-1)).css({"background-image":""});
-//     $('#column'+x+'row'+(y-2)).css({"background-image":""});
-//     //leaves
-//     $('#column'+x+'row'+(y-3)).css({"background-image":""});
-//     $('#column'+x+'row'+(y-4)).css({"background-image":""});
-//     $('#column'+x+'row'+(y-5)).css({"background-image":""});
-//     $('#column'+(x-1)+'row'+(y-3)).css({"background-image":""});
-//     $('#column'+(x-1)+'row'+(y-4)).css({"background-image":""});
-//     $('#column'+(x-1)+'row'+(y-5)).css({"background-image":""});
-//     $('#column'+(x+1)+'row'+(y-3)).css({"background-image":""});
-//     $('#column'+(x+1)+'row'+(y-4)).css({"background-image":""});
-//     $('#column'+(x+1)+'row'+(y-5)).css({"background-image":""});
-    
-// }
-=======
->>>>>>> 75500fdc1852fd35af781e009ef31da96324e6d9

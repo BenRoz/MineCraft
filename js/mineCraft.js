@@ -239,3 +239,15 @@ function createCloud(){
 }
 createCloud();
 
+
+//create bush
+function createBush(){
+    var x = 2;
+    var y = 6;
+    $('#column'+(x-1)+'row'+y).addClass('leaf');
+    $('#column'+(x+1)+'row'+y).addClass('leaf');
+    $('#column'+(x)+'row'+y).addClass('leaf');
+    $('#column'+(x)+'row'+(y-1)).addClass('leaf');
+}
+createBush();
+

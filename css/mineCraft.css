@@ -3,6 +3,7 @@
     height:1000px;
     display: inline-block;
     line-height:0;
+    background: #91C1FC ;
 }
 .square{
     height:6.4%;
@@ -51,28 +52,42 @@ button{
 #shovel{
     background-image: url("../images/shovel.png");
 }
-.dirt, #dirt{
+.dirt, #dirtBut{
     background-image: url("../images/dirt.png");
 }
-.dirtGrass, #dirtGrass{
+.dirtGrass, #dirtGrassBut{
     background-image: url("../images/grass.png");
 
 }
-#stones, .rock{
+#rockBut, .rock{
     background-image:url('../images/rock.png') ;
 }
 
-#Ariel{
+.trunck{
+    background-image:url('../images/tree.png') ;
+    display: inline-block;
+}
+.leaf{
+    background-image:url('../images/leaf.png') ;
+    display: inline-block;
+}
+
+#ArielBut{
     background-image: url('../images/Ariel.jpg'); 
     background-repeat: no-repeat;
     background-size: cover;
+    display: inline-block;
 }
-
-#leaves{
+.Ariel{
+background-image: url('../images/Ariel.jpg');
+ display: inline-block;
+   background-size: cover;
+}
+#leafBut{
     background-image: url('../images/leaf.png') ;
 }
 
-#wood{
+#trunckBut{
     background-image: url('../images/tree.png') ;
 }
 

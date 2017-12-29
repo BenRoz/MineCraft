@@ -1,4 +1,8 @@
+ $(window).on('load',function(){
+         $('#tutorialModal').modal('hide');
+        $('#openingModal').modal('show');
 
+    });
 function resetGame(){
 
     $('.board').html("");

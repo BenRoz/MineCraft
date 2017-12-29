@@ -172,3 +172,54 @@ button{
     background-size:cover;
     display:inline-block;
 }
+
+#modal{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#open-modal {
+  height: auto;
+  min-height: 100%;
+  border-radius: 0;
+  width:180% ;
+  background-image : url('../images/bg.jpg') ;
+  background-repeat: no-repeat;
+    background-size:cover;
+
+}
+
+.ourcss{
+ background-image : url('../images/logo.png') ;
+  background-repeat: no-repeat;
+    background-size:contain;
+    flex:0.6;
+}
+.modal-footer{
+ justify-content: space-evenly;
+}
+
+.btn.butcss{
+    width:180px;
+    background-color: #523923;
+    color : white;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: cursive;
+}
+
+#modal-tutorial-main{
+    background-color:white;
+     margin-top: 100px;
+}
+#tutorial{
+    justify-content: center;
+    display: flex;
+
+}
+#newGameButModal{
+        height: 60px;
+    width: 100px;
+}

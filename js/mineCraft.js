@@ -135,10 +135,10 @@ for (var z = 0; z < inventoryArray.length; z++){
        var buttonsDown = $("<button/>");
         buttonsDown.attr("id", inventoryArray[z]);
         buttonsDown.addClass('inventory');
-        //buttonsDown.text(settingCounter[inventoryArray[z]]);
-        var buttonText =  $('<p/>').html(settingCounter[inventoryArray[z]]);
-        buttonText.attr("id", inventoryArray[z]+"text");
-        buttonText.appendTo(buttonsDown);
+        buttonsDown.text(settingCounter[inventoryArray[z]]);
+        // var buttonText =  $('<p/>').html(settingCounter[inventoryArray[z]]);
+        // buttonText.attr("id", inventoryArray[z]+"text");
+        // buttonText.appendTo(buttonsDown);
         buttonsDown.click(function(){
         $('.inventory').removeClass("selectedTool");
         $('.tool').removeClass("selectedTool");

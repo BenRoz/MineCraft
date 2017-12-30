@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d383bbd-2935-42f0-a2a6-9185a5d540ba" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/mineCraft.css" afterPath="$PROJECT_DIR$/css/mineCraft.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/mineCraft.js" afterPath="$PROJECT_DIR$/js/mineCraft.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mineCraft.html" afterPath="$PROJECT_DIR$/mineCraft.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,7 +26,7 @@
       <file leaf-file-name="mineCraft.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mineCraft.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-149">
+            <state relative-caret-position="-128">
               <caret line="55" column="35" lean-forward="false" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
               <folding>
                 <element signature="e#1540#1547#1" expanded="true" />
@@ -40,8 +38,8 @@
       <file leaf-file-name="mineCraft.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/mineCraft.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="243" column="0" lean-forward="true" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
+            <state relative-caret-position="80">
+              <caret line="96" column="16" lean-forward="true" selection-start-line="96" selection-start-column="16" selection-end-line="96" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -106,6 +104,7 @@
       <find>settingCounter</find>
       <find>creatingMatrix</find>
       <find>inventoryArray</find>
+      <find>matchingIdToClass</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,7 +123,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="107" />
     <option name="width" value="1823" />
     <option name="height" value="1030" />
@@ -205,7 +204,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.234375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -613,7 +612,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mineCraft.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-149">
+        <state relative-caret-position="-128">
           <caret line="55" column="35" lean-forward="false" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
           <folding>
             <element signature="e#1540#1547#1" expanded="true" />
@@ -623,8 +622,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/mineCraft.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="243" column="0" lean-forward="true" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
+        <state relative-caret-position="80">
+          <caret line="96" column="16" lean-forward="true" selection-start-line="96" selection-start-column="16" selection-end-line="96" selection-end-column="16" />
           <folding />
         </state>
       </provider>

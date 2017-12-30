@@ -33,33 +33,34 @@ function squarePress(){
     if (($(this).attr("class") == "square dirt") && ($("#shovel").attr("class") == "tool selectedTool")){
         $(this).attr("class", "square");
         settingCounter.dirtBut++;
-        $("#dirtBut").text(settingCounter.dirtBut);
+        $("#dirtButtext").text(settingCounter.dirtBut);
     }
 
     else if (($(this).attr("class") == "square dirtGrass")&& ($("#shovel").attr("class") == "tool selectedTool"))  {
           $(this).attr("class", "square");
          settingCounter.dirtGrassBut++;
-         $("#dirtGrassBut").text(settingCounter.dirtGrassBut);
+         $("#dirtGrassButtext").text(settingCounter.dirtGrassBut);
     }
     else if (($(this).attr("class") == "square leaf") && ($("#axe").attr("class") == "tool selectedTool")){
         $(this).attr("class", "square");
         settingCounter.leafBut++;
-        $("#leafBut").text(settingCounter.leafBut);
+        $("#leafButtext").text(settingCounter.leafBut);
     }
     else if (($(this).attr("class") == "square trunck") && ($("#axe").attr("class") == "tool selectedTool")){
         $(this).attr("class", "square");
          settingCounter.trunckBut++;
-         $("#trunckBut").text(settingCounter.trunckBut);
+         $("#trunckButtext").text(settingCounter.trunckBut);
     }
     else if (($(this).attr("class")== "square rock") && ($("#pickaxe").attr("class") == "tool selectedTool")){
         $(this).attr("class", "square");
         settingCounter.rockBut++;
-        $("#rockBut").text(settingCounter.rockBut);
+        $("#rockButtext").text(settingCounter.rockBut);
     }
     else if (($(this).attr("class")== "Ariel")){
         $(this).attr("class", "square");
         settingCounter.ArielBut++;
-        $("#ArielBut").text(settingCounter.ArielBut);
+        $("#ArielButtext").text(settingCounter.ArielBut);
+
     }
     else if (($(this).attr("class") !== "square dirt") && ($("#shovel").attr("class") == "tool selectedTool")) {
         $("#shovel").attr("class","tool selectedTool notWorkingColor");
@@ -90,9 +91,9 @@ var settingCounter ={}
 var matchingIdToClass= {
     dirtBut : "square dirt",
     dirtGrassBut : "square dirtGrass",
-    rockBut : "rock",
-    leafBut: "leaf",
-    trunckBut: "trunck",
+    rockBut : "square rock",
+    leafBut: "square leaf",
+    trunckBut: "square trunck",
     ArielBut : "Ariel"
 };
 var toolButtonArray = ["axe","pickaxe", "shovel"];
@@ -136,7 +137,7 @@ for (var z = 0; z < inventoryArray.length; z++){
         buttonsDown.attr("id", inventoryArray[z]);
         buttonsDown.addClass('inventory');
         //buttonsDown.text(settingCounter[inventoryArray[z]]);
-        var buttonText =  $('<p/>').html(settingCounter[inventoryArray[z]]);
+        var buttonText =  $('<p/>').text(settingCounter[inventoryArray[z]]);
         buttonText.attr("id", inventoryArray[z]+"text");
         buttonText.appendTo(buttonsDown);
         buttonsDown.click(function(){
@@ -161,10 +162,8 @@ function placingOnBoard(a){
     if(settingCounter[tempClassName] > 0){
         if (a.css('background-image') == "none"){
         a.attr("class", matchingIdToClass[tempClassName]);
-         console.log(matchingIdToClass[tempClassName]);
-         console.log(matchingIdToClass[tempClassName]);
          settingCounter[tempClassName]--;
-         $("#"+tempClassName).text(settingCounter[tempClassName]);
+         $("#"+tempClassName+"text").text(settingCounter[tempClassName]);
          }
 
      }

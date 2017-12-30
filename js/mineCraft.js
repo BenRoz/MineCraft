@@ -16,7 +16,7 @@ function resetGame(){
     settingCounter.ArielBut= 5;
 
     creatingMatrix();
-    createTree();
+    createTree(12 ,6);
     createRock();
     createCloud();
     createBush();
@@ -136,10 +136,17 @@ for (var z = 0; z < inventoryArray.length; z++){
        var buttonsDown = $("<button/>");
         buttonsDown.attr("id", inventoryArray[z]);
         buttonsDown.addClass('inventory');
+
         //buttonsDown.text(settingCounter[inventoryArray[z]]);
         var buttonText =  $('<p/>').text(settingCounter[inventoryArray[z]]);
         buttonText.attr("id", inventoryArray[z]+"text");
         buttonText.appendTo(buttonsDown);
+
+          buttonText.text(settingCounter[inventoryArray[z]]);
+        // var buttonText =  $('<p/>').html(settingCounter[inventoryArray[z]]);
+        // buttonText.attr("id", inventoryArray[z]+"text");
+        // buttonText.appendTo(buttonsDown);
+
         buttonsDown.click(function(){
         $('.inventory').removeClass("selectedTool");
         $('.tool').removeClass("selectedTool");
@@ -197,9 +204,9 @@ function creatingMatrix(){
 }
 
 //creating tree
-function createTree(){
-    var x = 12;
-    var y = 6;
+function createTree(x, y){
+    // var x = 12;
+    // var y = 6;
     $('#column'+(x)+'row'+(y)).addClass('square trunck');
     $('#column'+(x)+'row'+(y-1)).addClass('square trunck');
     $('#column'+(x)+'row'+(y-2)).addClass('square trunck');
@@ -209,7 +216,53 @@ function createTree(){
     $('#column'+(x-1)+'row'+(y-4)).addClass('square leaf');
     $('#column'+(x+1)+'row'+(y-3)).addClass('square leaf');
     $('#column'+(x+1)+'row'+(y-4)).addClass('square leaf');
+
+    lastTreeX = x;
+    lastTreeY = y;
+
 }
+//clear tree prior to move
+function clearTree(x, y){
+    // var x = 12;
+    // var y = 6;
+    $('#column'+(x)+'row'+(y)).attr('class','square');
+    $('#column'+(x)+'row'+(y-1)).attr('class','square');
+    $('#column'+(x)+'row'+(y-2)).attr('class','square');
+    $('#column'+(x)+'row'+(y-3)).attr('class','square');
+    $('#column'+(x)+'row'+(y-4)).attr('class','square');
+    $('#column'+(x-1)+'row'+(y-3)).attr('class','square');
+    $('#column'+(x-1)+'row'+(y-4)).attr('class','square');
+    $('#column'+(x+1)+'row'+(y-3)).attr('class','square');
+    $('#column'+(x+1)+'row'+(y-4)).attr('class','square');
+
+}
+
+//var lastTreeX;
+//var lastTreeY;
+//document.onkeydown = moveTree;
+//function moveTree(e){
+//    if (e.keyCode == '38') {
+//        // up arrow
+//        clearTree(lastTreeX, lastTreeY);
+//        createTree((lastTreeX),(lastTreeY - 1));
+//
+//    }
+//    else if (e.keyCode == '40') {
+//        // down arrow
+//        clearTree(lastTreeX, lastTreeY);
+//        createTree((lastTreeX),(lastTreeY + 1));
+//    }
+//    else if (e.keyCode == '37') {
+//       // left arrow
+//        clearTree(lastTreeX, lastTreeY);
+//        createTree((lastTreeX-1),(lastTreeY));
+//    }
+//    else if (e.keyCode == '39') {
+//       // right arrow
+//        clearTree(lastTreeX, lastTreeY);
+//        createTree((lastTreeX + 1),(lastTreeY));
+//    }
+//}
 
 //creating rocks
 function createRock(){
